@@ -1,0 +1,48 @@
+/* ===== Course Detail page CSS from PHP course-detail.php ===== */
+
+.course-detail-section { padding: 80px 0; }
+.course-detail-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 50px; align-items: start; }
+.course-video-wrapper { border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); margin-bottom: 30px; }
+.course-video-wrapper video { width: 100%; height: 350px; object-fit: cover; display: block; }
+.course-info-left h2 { font-size: 2rem; font-weight: 700; color: var(--secondary); margin-bottom: 15px; }
+.course-info-left .desc { color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 30px; }
+
+.course-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 30px; }
+.course-stat-card { background: var(--bg-light); padding: 20px; border-radius: var(--radius-md); text-align: center; }
+.course-stat-card i { color: var(--primary); font-size: 1.5rem; margin-bottom: 10px; }
+.course-stat-card p { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 4px; }
+.course-stat-card h4 { font-size: 0.95rem; font-weight: 600; color: var(--secondary); }
+
+.detail-block { margin-bottom: 30px; }
+.detail-block h3 { font-size: 1.3rem; font-weight: 700; color: var(--secondary); margin-bottom: 15px; }
+.spec-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+.spec-tags span { background: var(--primary-light); color: var(--primary); padding: 8px 18px; border-radius: 50px; font-size: 0.85rem; font-weight: 500; }
+.highlight-list { list-style: none; }
+.highlight-list li { padding: 10px 0; font-size: 0.95rem; color: var(--text-main); display: flex; align-items: center; gap: 12px; }
+.highlight-list li i { color: #22c55e; }
+
+.course-sidebar { position: sticky; top: 20px; }
+.sidebar-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 35px; box-shadow: var(--shadow-md); margin-bottom: 25px; }
+.sidebar-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--secondary); margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border); }
+.sidebar-info-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border); }
+.sidebar-info-row:last-child { border-bottom: none; }
+.sidebar-info-row span:first-child { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
+.sidebar-info-row span:last-child { font-size: 0.9rem; color: var(--secondary); font-weight: 600; }
+.eligibility-box { background: #fef3c7; padding: 20px; border-radius: var(--radius-md); margin-bottom: 20px; }
+.eligibility-box p { font-size: 0.88rem; color: #b45309; line-height: 1.6; }
+.career-list { list-style: none; }
+.career-list li { padding: 8px 0; font-size: 0.9rem; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
+.career-list li i { color: var(--primary); font-size: 0.8rem; }
+.sidebar-cta { width: 100%; padding: 16px; font-size: 1.05rem; font-weight: 600; text-align: center; }
+
+.other-courses-section { padding: 60px 0 80px; background: var(--bg-light); }
+.other-courses-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 30px; }
+.other-course-card { background: var(--white); padding: 25px 15px; border-radius: var(--radius-md); text-align: center; border: 1px solid var(--border); transition: all 0.3s; }
+.other-course-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--primary); }
+.other-course-card h4 { font-size: 0.95rem; color: var(--secondary); margin-bottom: 5px; }
+.other-course-card p { font-size: 0.78rem; color: var(--text-muted); }
+.other-course-card.active { border-color: var(--primary); background: var(--primary-light); }
+
+@media (max-width: 992px) { .course-detail-grid { grid-template-columns: 1fr; } .other-courses-grid { grid-template-columns: repeat(3, 1fr); } .course-sidebar { position: static; } }
+@media (max-width: 768px) { .course-stats { grid-template-columns: 1fr; } .other-courses-grid { grid-template-columns: repeat(2, 1fr); } .sidebar-card { padding: 25px 20px; } }
+@media (max-width: 480px) { .other-courses-grid { grid-template-columns: 1fr; } .course-video-wrapper video { height: 250px; } }

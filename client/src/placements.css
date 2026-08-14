@@ -1,0 +1,50 @@
+/* ===== Placements page CSS from PHP placements.php ===== */
+
+.stats-section { padding: 80px 0; }
+
+.p-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.p-stat-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 35px 20px; text-align: center; box-shadow: var(--shadow-sm); transition: all 0.4s; }
+.p-stat-box:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: var(--primary); }
+.p-stat-box .ps-icon { width: 60px; height: 60px; background: var(--primary-light); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 15px; }
+.p-stat-box p { font-size: 0.85rem; color: var(--text-muted); font-weight: 500; margin-bottom: 8px; }
+.p-stat-box h4 { font-size: 2rem; font-weight: 700; color: var(--secondary); }
+.p-stat-box h4 span { font-size: 0.9rem; }
+
+.recruiters-section { padding: 80px 0; background: var(--bg-light); }
+.recruiters-logos {
+    display: flex; flex-wrap: nowrap; gap: 16px; justify-content: space-between;
+    background: var(--white); border: 1px solid var(--border);
+    padding: 24px; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);
+}
+.recruiter-card { flex: 1 1 20%; min-width: 0; display: flex; flex-direction: column; align-items: center; }
+.recruiter-icon { width: 60px; height: 60px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--white); transition: all 0.4s; box-shadow: var(--shadow-sm); }
+.recruiter-icon:hover { transform: translateY(-6px) scale(1.1); box-shadow: var(--shadow-lg); }
+.ri-google { background: linear-gradient(135deg, #4285F4, #34A853); }
+.ri-microsoft { background: linear-gradient(135deg, #00A4EF, #7FBA00); }
+.ri-amazon { background: linear-gradient(135deg, #FF9900, #232F3E); }
+.ri-tcs { background: linear-gradient(135deg, #1e3a8a, #3b82f6); }
+.ri-infosys { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+.recruiter-name { font-size: 0.75rem; color: var(--text-muted); margin-top: 8px; font-weight: 600; text-align: center; }
+
+.stories-section { padding: 80px 0; }
+.stories-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
+.story-card { background: var(--white); padding: 35px; border-radius: var(--radius-lg); border: 1px solid var(--border); position: relative; transition: all 0.4s; }
+.story-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+.story-card .quote-icon { font-size: 2.5rem; color: rgba(37,99,235,0.1); margin-bottom: 15px; }
+.story-card p { font-size: 0.95rem; color: var(--secondary); line-height: 1.7; margin-bottom: 25px; font-style: italic; }
+.story-author { display: flex; align-items: center; gap: 15px; border-top: 1px solid var(--border); padding-top: 20px; }
+.story-author img { width: 55px; height: 55px; border-radius: 50%; object-fit: cover; }
+.story-author h4 { font-size: 1rem; color: var(--secondary); }
+.story-author p { font-size: 0.85rem; color: var(--primary); font-weight: 600; font-style: normal; margin: 0; }
+
+.process-section { padding: 80px 0; background: var(--bg-light); }
+.process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 50px; }
+.process-card { background: var(--white); padding: 30px 20px; border-radius: var(--radius-lg); text-align: center; border: 1px solid var(--border); transition: all 0.4s; }
+.process-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: var(--primary); }
+.process-card .pr-icon { width: 55px; height: 55px; background: var(--primary); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin: 0 auto 15px; }
+.process-card h4 { font-size: 1.05rem; color: var(--secondary); margin-bottom: 8px; }
+.process-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+
+@media (max-width: 992px) { .p-stats { grid-template-columns: repeat(2, 1fr); } .stories-grid { grid-template-columns: repeat(2, 1fr); } .process-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .p-stats, .stories-grid, .process-grid { grid-template-columns: 1fr; } .recruiters-logos { flex-wrap: wrap; gap: 12px; padding: 16px; } .recruiter-card { flex: 1 1 calc(33% - 12px); } }
+@media (max-width: 480px) { .recruiter-card { flex: 1 1 calc(50% - 12px); } .story-card { padding: 25px 20px; } }

@@ -1,0 +1,79 @@
+/* ===== Auth Login pages CSS (matching PHP admin/login.php & student_login.php) ===== */
+
+:root {
+  --auth-primary: #2563eb;
+  --auth-primary-dark: #1d4ed8;
+  --auth-secondary: #1e293b;
+  --auth-text-muted: #64748b;
+  --auth-white: #fff;
+  --auth-border: #e2e8f0;
+  --auth-danger: #ef4444;
+  --auth-radius-md: 10px;
+  --auth-radius-lg: 16px;
+  --auth-radius-xl: 24px;
+}
+
+.auth-body {
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.auth-body.student-bg {
+  background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+}
+
+.auth-body::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 50%, rgba(37,99,235,0.15) 0%, transparent 50%),
+               radial-gradient(circle at 70% 50%, rgba(59,130,246,0.1) 0%, transparent 50%);
+}
+
+.login-wrapper { position: relative; z-index: 1; width: 100%; max-width: 440px; padding: 20px; }
+.login-card { background: var(--auth-white); border-radius: var(--auth-radius-xl); padding: 50px 40px; box-shadow: 0 25px 60px rgba(0,0,0,0.3); }
+.login-logo { text-align: center; margin-bottom: 35px; }
+.login-logo .logo-icon { width: 60px; height: 60px; background: var(--auth-primary); border-radius: 16px; display: inline-flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--auth-white); margin-bottom: 16px; }
+.login-logo h2 { font-size: 1.5rem; font-weight: 700; color: var(--auth-secondary); margin: 0; }
+.login-logo p { font-size: 0.85rem; color: var(--auth-text-muted); margin-top: 4px; }
+
+.error-msg { background: #fee2e2; color: var(--auth-danger); padding: 12px 18px; border-radius: var(--auth-radius-md); font-size: 0.85rem; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+
+.auth-form-group { margin-bottom: 22px; }
+.auth-form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--auth-secondary); margin-bottom: 8px; }
+.input-wrapper { position: relative; }
+.input-wrapper i { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--auth-text-muted); font-size: 0.9rem; }
+.input-wrapper input { width: 100%; padding: 14px 16px 14px 44px; border: 1px solid var(--auth-border); border-radius: var(--auth-radius-md); font-size: 0.95rem; font-family: inherit; color: var(--auth-secondary); transition: all 0.3s; box-sizing: border-box; }
+.input-wrapper input:focus { outline: none; border-color: var(--auth-primary); box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+
+.btn-login { width: 100%; padding: 15px; background: var(--auth-primary); color: var(--auth-white); border: none; border-radius: var(--auth-radius-md); font-size: 1rem; font-weight: 600; cursor: pointer; font-family: inherit; transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.btn-login:hover { background: var(--auth-primary-dark); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(37,99,235,0.3); }
+.btn-login:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+
+.login-footer { text-align: center; margin-top: 25px; font-size: 0.8rem; color: var(--auth-text-muted); }
+.login-footer a { color: var(--auth-primary); font-weight: 600; text-decoration: none; }
+.login-footer a:hover { text-decoration: underline; }
+
+.demo-creds { background: #f0f9ff; border: 1px solid #bae6fd; border-radius: var(--auth-radius-md); padding: 14px 18px; margin-bottom: 25px; font-size: 0.82rem; color: #0369a1; line-height: 1.6; }
+.demo-creds strong { font-weight: 700; }
+
+@media (max-width: 480px) {
+  .login-card { padding: 30px 20px; }
+  .login-logo h2 { font-size: 1.2rem; }
+  .login-logo .logo-icon { width: 48px; height: 48px; font-size: 1.5rem; }
+  .input-wrapper input { padding: 12px 14px 12px 40px; font-size: 0.9rem; }
+  .btn-login { padding: 13px; font-size: 0.95rem; }
+  .login-footer { font-size: 0.75rem; }
+  .demo-creds { padding: 12px 14px; font-size: 0.78rem; }
+}

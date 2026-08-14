@@ -1,0 +1,31 @@
+/* ===== Courses page CSS from PHP courses.php ===== */
+
+.courses-section { padding: 80px 0; }
+
+.courses-filter { display: flex; justify-content: center; gap: 12px; margin-bottom: 50px; flex-wrap: wrap; }
+.filter-btn { padding: 10px 24px; border: 1px solid var(--border); background: var(--white); border-radius: 50px; font-size: 0.9rem; font-weight: 600; color: var(--secondary); cursor: pointer; transition: all 0.3s; }
+.filter-btn:hover, .filter-btn.active { background: var(--primary); color: var(--white); border-color: var(--primary); }
+
+.courses-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.course-card { background: var(--white); border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border); transition: all 0.4s; }
+.course-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+.course-card img, .course-card video { width: 100%; height: 300px; object-fit: cover; transition: transform 0.5s; display: block; margin: 0; padding: 0; }
+.course-card:hover img, .course-card:hover video { transform: scale(1.08); }
+.c-body { padding: 25px; }
+.c-body h3 { font-size: 1.3rem; font-weight: 600; color: var(--secondary); margin-bottom: 12px; }
+.c-meta { display: flex; gap: 15px; margin-bottom: 15px; font-size: 0.85rem; color: var(--text-muted); }
+.c-meta span { display: flex; align-items: center; gap: 6px; }
+.c-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+.c-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 15px; }
+.c-price { font-size: 1.1rem; font-weight: 700; color: var(--primary); }
+.c-link { display: inline-flex; align-items: center; gap: 6px; color: var(--primary); font-weight: 600; font-size: 0.9rem; transition: gap 0.3s; }
+.c-link:hover { gap: 10px; }
+
+.cta-section { padding: 80px 0; background: var(--bg-light); }
+.cta-inner { background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); border-radius: var(--radius-xl); padding: 60px; display: flex; align-items: center; justify-content: space-between; gap: 40px; background-size: 200% 200%; animation: gradientShift 4s ease infinite; }
+.cta-content h2 { font-size: 2rem; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+.cta-content p { color: rgba(255,255,255,0.9); font-size: 1.05rem; }
+
+@media (max-width: 992px) { .courses-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .courses-grid { grid-template-columns: 1fr; } .cta-inner { flex-direction: column; text-align: center; padding: 40px 25px; } }
+@media (max-width: 480px) { .courses-filter { gap: 8px; } .filter-btn { padding: 8px 16px; font-size: 0.8rem; } }
