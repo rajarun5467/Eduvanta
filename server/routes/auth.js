@@ -10,26 +10,43 @@ router.post('/student-login', studentLogin);
 router.post('/logout', protect, logout);
 router.get('/me', protect, me);
 
-// TEMPORARY ROUTE TO RESET ADMIN
-router.get('/reset-admin', async (req, res) => {
+// TEMPORARY: Reset all passwords
+router.get('/reset-all-passwords', async (req, res) => {
   try {
+    const User = require('../models/User');
+    const Student = require('../models/Student');
+    let output = '';
+
+    // Reset admin
     let admin = await User.findOne({ username: 'admin' });
     if (!admin) {
-      admin = new User({
-        username: 'admin',
-        password: 'admin123',
-        role: 'admin',
-        canAccessFees: true,
-        canAccessSalary: true,
-        status: 'Active'
-      });
+      admin = new User({ username: 'admin', password: 'admin123', role: 'admin', canAccessFees: true, canAccessSalary: true, status: 'Active' });
     } else {
       admin.password = 'admin123';
     }
     await admin.save();
-    res.send('<h1>Admin password reset successfully! You can now login with username: admin and password: admin123</h1><p>Please tell me once you login so I can remove this secure code.</p>');
+    output += 'Admin reset: admin / admin123\n';
+
+    // Reset all faculty
+    const users = await User.find({ role: { $in: ['teacher', 'class_teacher'] } });
+    for (const u of users) {
+      u.password = 'teacher123';
+      await u.save();
+      output += `Faculty reset: ${u.username} / teacher123\n`;
+    }
+
+    // List students
+    const students = await Student.find({});
+    output += '\n--- STUDENTS (login with email + DOB) ---\n';
+    for (const s of students) {
+      const dob = s.dob ? new Date(s.dob).toLocaleDateString('en-CA', { timeZone: 'Asia/Kolkata' }) : 'NO DOB';
+      output += `Email: ${s.email} | DOB: ${dob} | Status: ${s.status}\n`;
+    }
+
+    res.set('Content-Type', 'text/plain');
+    res.send(output);
   } catch (err) {
-    res.status(500).send('Error resetting admin: ' + err.message);
+    res.status(500).send('Error: ' + err.message);
   }
 });
 
